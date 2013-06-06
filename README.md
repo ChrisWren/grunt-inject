@@ -1,78 +1,50 @@
-# grunt-blog
-> Grunt task to create a blog using markdown and templates
+# grunt-inject
+> Grunt task to inject scripts during development. Great for use with [livereload](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload) and other snippets to clear Cookies or localStorage.
 
 ## Getting Started
 If you haven't used grunt before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a gruntfile as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 ```shell
-npm install grunt-blog --save-dev
+npm install grunt-inject --save-dev
 ```
 
 Then add this line to your project's `Gruntfile.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-blog');
+grunt.loadNpmTasks('grunt-inject');
 ```
 
 ## Documentation
-Here is the minimal config to create a blog using `grunt-blog`:
+Here is the config to inject a script into a page:
 ```js
-blog: {
-  posts: {
-    src: 'src/posts',
-    layout: 'src/layouts/post.jade',
-    url: 'blog/posts/:title'
+inject: {
+  dev: {
+    htmlSrc: 'src/index.html',
+    scriptSrc: 'build/setup.js',
+    htmlDest: 'dev/index.html'
   }
 }
 ```
-Here is the maximum config:
-```js
-blog: {
-  options: {
-    pageSrc: 'src/pages',
-    devFolder: 'dev',
-    distFolder: 'dist'
-  },
-  posts: {
-    src: 'src/posts',
-    layout: 'src/layouts/post.jade',
-    url: 'blog/posts/:title'
-  }
-}
-```
-### Formatting blog posts
-Blog posts are written in markdown and include a metadata section at the top to provide information for listing blog posts, the url, and timestamp.
 
 ### Required properties
-#### src
-Type: `string`
 
-The source directory where the blog posts are located.
-#### layout
-Type: `string`
+#### htmlSrc
+Type: `String`
 
-The layout for a blog post. We currently support [jade](https://github.com/visionmedia/jade) and [ejs](https://github.com/visionmedia/ejs) templates. The post content will be stored in a `content` variable to be rendered in the layout template. Here is an example layout template;
+The html source file which contains the following comment to be replaced by the script:
 
-#### url
-Type: `string`
+```html
+<!--inject-->
+```
 
-This is the url of the blog post which will appear on your web page. This string takes variables as parameters using the '/:variable' syntax. This variable(s) must correspond to the posts metadata.
+#### scriptSrc
+Type: `String`
 
-### Options
+The script to be injected into the page.
 
-#### pageSrc
-Type: `string`
+#### htmlDest
+Type: `String`
 
-This is folder where the pages of you website are located. These pages can use the post metadata to display a list of posts. All of the files in this folder.
-
-#### devFolder
-Type: `string`
-
-This is folder where the development version of the blog is generated. 
-
-### distFolder
-Type: `string`
-
-This is folder where the distribution version of the blog is generated. 
+The location where the injected html file is output.
 
 # Changelog
 
