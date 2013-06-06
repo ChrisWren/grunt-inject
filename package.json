@@ -1,0 +1,27 @@
+{
+  "name": "grunt-inject",
+  "version": "0.0.0",
+  "description": "Inject JavaScript snippets into your development page",
+  "main": "tasks/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": "",
+  "keywords": [
+    "gruntplugin",
+    "snippet",
+    "javascript",
+    "inject"
+  ],
+  "author": "ChrisWren",
+  "license": "MIT",
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "should": "~1.2.2"
+  }
+}
