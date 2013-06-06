@@ -1,7 +1,7 @@
 {
   "name": "grunt-inject",
   "version": "0.0.0",
-  "description": "Inject JavaScript snippets into your development page",
+  "description": "Grunt task to inject scripts during development",
   "main": "tasks/index.js",
   "scripts": {
     "test": "grunt test"
