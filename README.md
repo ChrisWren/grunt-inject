@@ -1,8 +1,7 @@
 # grunt-inject
-> Grunt task to inject scripts during development. Great for use with [livereload](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload) and other snippets to clear Cookies or localStorage.
+> Grunt task to inject scripts during development. Great for use with [Dev Tools snippets](https://github.com/bgrins/devtools-snippets).
 
-[![NPM version](https://badge.fury.io/js/grunt-inject.png)](http://badge.fury.io/js/grunt-inject)  
-[![Travis Status](https://travis-ci.org/ChrisWren/grunt-inject.png?branch=master)](https://travis-ci.org/ChrisWren/grunt-inject)
+[![NPM version](https://badge.fury.io/js/grunt-inject.png)](http://badge.fury.io/js/grunt-inject)  [![Travis Status](https://travis-ci.org/ChrisWren/grunt-inject.png?branch=master)](https://travis-ci.org/ChrisWren/grunt-inject)
 
 ## Getting Started
 If you haven't used grunt before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a gruntfile as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
