@@ -6,14 +6,18 @@
   "scripts": {
     "test": "grunt test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ChrisWren/grunt-inject.git"
+  },
+  "bugs": "https://github.com/ChrisWren/grunt-inject/issues/",
   "keywords": [
     "gruntplugin",
     "snippet",
     "javascript",
     "inject"
   ],
-  "author": "ChrisWren",
+  "author": "ChrisWren (http://chrisawren.com)",
   "license": "MIT",
   "peerDependencies": {
     "grunt": "~0.4.1"
