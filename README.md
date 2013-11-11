@@ -61,8 +61,8 @@ The `src` HTML files must have the following comment which is replaced by the in
 ```js
 
 // Adds LiveReload script pointing at the client's hostname.
-// This is helpful for mobile web development where your desktop might point at localhost
-// while your devices point to a local IP address.
+// This is helpful for mobile web development where your desktop might point at localhost while
+// your devices point to a local IP address.
 document.write('<script src="http://'
  + window.location.hostname
  + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
@@ -70,7 +70,7 @@ document.write('<script src="http://'
 
 # Changelog
 
-**0.1.0** Multiple script injectons can now be configured in a single task now that the [Grunt file configuration](http://gruntjs.com/configuring-tasks#files) is used.
+**0.1.0** - Multiple script injectons can now be configured in a single task now that the [Grunt file configuration](http://gruntjs.com/configuring-tasks#files) is used.
 
 **Breaking Changes:**
 
