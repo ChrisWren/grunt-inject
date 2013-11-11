@@ -5,9 +5,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
     inject: {
       dev: {
-        htmlSrc: 'test/fixtures/index.html',
-        scriptSrc: 'test/fixtures/script.js',
-        htmlDest: 'test/output/index.html'
+        files:{
+          'test/output/index.html': 'test/fixtures/index.html'
+        },
+        scriptSrc: 'test/fixtures/script.js'
       }
     },
     clean: ['test/output'],
