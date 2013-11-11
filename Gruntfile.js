@@ -62,9 +62,10 @@ module.exports = function (grunt) {
       files: {
         src:  ['*.js', 'test/*.js', 'tasks/*.js']
       }
-    }
+    },
+    mdlint: ['README.md']
   });
 
   grunt.loadTasks('./tasks');
-  grunt.registerTask('test', ['jshint', 'simplemocha']);
+  grunt.registerTask('test', ['jshint', 'simplemocha', 'mdlint']);
 };
