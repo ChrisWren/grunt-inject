@@ -4,51 +4,66 @@
 [![NPM version](https://badge.fury.io/js/grunt-inject.png)](http://badge.fury.io/js/grunt-inject)  [![Travis Status](https://travis-ci.org/ChrisWren/grunt-inject.png?branch=master)](https://travis-ci.org/ChrisWren/grunt-inject)
 
 ## Getting Started
-If you haven't used grunt before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a gruntfile as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
+If you haven't used Grunt before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a Gruntfile as well as install and use Grunt plugins. Once you're familiar with that process, install this plugin with this command:
+
 ```shell
 npm install grunt-inject --save-dev
 ```
 
-Then add this line to your project's `Gruntfile.js` gruntfile:
+Then add this line to your project's `Gruntfile.js` Gruntfile:
 
 ```javascript
 grunt.loadNpmTasks('grunt-inject');
 ```
 
 ## Documentation
-Here is the config to inject a script into a page:
+
+Here is a config to inject a script into a single page, and a second config to inject a script into multiple pages. You can use which ever one suits your needs:
+
 ```js
 inject: {
-  dev: {
-    htmlSrc: 'src/index.html',
+  single: {
     scriptSrc: 'build/setup.js',
-    htmlDest: 'dev/index.html'
+    files: {
+      'dist/index.html': 'src/index.html'
+    }
+  },
+  multiple: {
+    scriptSrc: 'build/setup.js',
+    files: [{
+      expand: true,
+      cwd: 'src',
+      src: ['**/*.html'],
+      dest: 'dist'
+    }]
   }
 }
 ```
 
 ### Required properties
 
-#### htmlSrc
-Type: `String`
-
-The html source file which contains the following comment to be replaced by the script:
-
-```html
-<!--inject-->
-```
-
 #### scriptSrc
 Type: `String`
 
-The script to be injected into the page.
+The path of the script to be injected into the page.
 
-#### htmlDest
-Type: `String`
+#### files
+Type: [`Grunt file configuration`](http://gruntjs.com/configuring-tasks#files)
 
-The location where the injected html file is output.
+The `src` HTML files must have the following comment which is replaced by the injected JavaScript:
+
+```html
+<!-- inject -->
+```
 
 # Changelog
 
-**0.0.0** - Initial release
+**0.1.0**
+
+**Breaking Changes:**
+
+- `htmlSrc` and `htmlDest` are no longer supported and must be replaced by the [grunt file configuration](http://gruntjs.com/configuring-tasks#files).
+- the `<!--inject-->` comment now has spaces inside and looks like this: `<!-- inject -->`.
+
+**0.0.0** - Initial release.
 
