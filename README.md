@@ -1,5 +1,5 @@
 # grunt-inject
-> Grunt task to inject scripts during development. Great for use with [Dev Tools snippets](https://github.com/bgrins/devtools-snippets).
+> Grunt task to inject scripts during development. Great for use with LiveReload via [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch), web inspector remote via [grunt-weinre](https://github.com/ChrisWren/grunt-weinre), and [Dev Tools snippets](https://github.com/bgrins/devtools-snippets). Check out the [sample script](#sample-script) below.
 
 [![NPM version](https://badge.fury.io/js/grunt-inject.png)](http://badge.fury.io/js/grunt-inject)  [![Travis Status](https://travis-ci.org/ChrisWren/grunt-inject.png?branch=master)](https://travis-ci.org/ChrisWren/grunt-inject)
 
@@ -23,13 +23,13 @@ Here is a config to inject a script into a single page, and a second config to i
 ```js
 inject: {
   single: {
-    scriptSrc: 'build/setup.js',
+    scriptSrc: 'build/devscript.js',
     files: {
       'dist/index.html': 'src/index.html'
     }
   },
   multiple: {
-    scriptSrc: 'build/setup.js',
+    scriptSrc: 'build/devscript.js',
     files: [{
       expand: true,
       cwd: 'src',
@@ -56,13 +56,25 @@ The `src` HTML files must have the following comment which is replaced by the in
 <!-- inject -->
 ```
 
+## Sample Script
+
+```js
+
+// Adds LiveReload script pointing at the client's hostname.
+// This is helpful for mobile web development where your desktop might point at localhost
+// while your devices point to a local IP address.
+document.write('<script src="http://'
+ + window.location.hostname
+ + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+```
+
 # Changelog
 
-**0.1.0**
+**0.1.0** Multiple script injectons can now be configured in a single task now that the [Grunt file configuration](http://gruntjs.com/configuring-tasks#files) is used.
 
 **Breaking Changes:**
 
-- `htmlSrc` and `htmlDest` are no longer supported and must be replaced by the [grunt file configuration](http://gruntjs.com/configuring-tasks#files).
+- `htmlSrc` and `htmlDest` are no longer supported and must be replaced by the [Grunt file configuration](http://gruntjs.com/configuring-tasks#files).
 - the `<!--inject-->` comment now has spaces inside and looks like this: `<!-- inject -->`.
 
 **0.0.0** - Initial release.
