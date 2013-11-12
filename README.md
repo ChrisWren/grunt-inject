@@ -58,6 +58,8 @@ The `src` HTML files must have the following comment which is replaced by the in
 
 ## Sample Script
 
+Here is a sample `devscript.js` which works together with [grunt-contrib-watch with livereload](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload) and [grunt-weinre with the recommended usage](https://github.com/ChrisWren/grunt-weinre#recommended-usage).
+
 ```js
 
 // Adds LiveReload script pointing at the client's hostname.
@@ -66,6 +68,10 @@ The `src` HTML files must have the following comment which is replaced by the in
 document.write('<script src="http://'
  + window.location.hostname
  + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+
+// Adds the client as a weinre(web inspector remote) debugging target at http://localhost:8082/client/#anonymous
+// This is used to debug every mobile browser besides Mobile Safari and Chrome for Android
+document.write('<script src="http://' + window.location.hostname + ':8082/target/target-script-min.js#anonymous"><\/script>');
 ```
 
 # Changelog
