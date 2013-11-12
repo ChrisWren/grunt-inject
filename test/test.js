@@ -23,7 +23,7 @@ describe('When grunt-inject is run', function () {
   });
 
   it('logs thhe expected output', function() {
-    processOutput.should.include('test/fixtures/script.js');
+    processOutput.should.include('Dev scripts');
     processOutput.should.include('injected');
     processOutput.should.include('into test/output/index.html');
   });
