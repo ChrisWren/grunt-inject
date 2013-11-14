@@ -1,6 +1,6 @@
 {
   "name": "grunt-inject",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Grunt task to inject scripts during development",
   "main": "tasks/index.js",
   "scripts": {
