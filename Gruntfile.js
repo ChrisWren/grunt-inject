@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         files:{
           'test/output/index.html': 'test/fixtures/index.html'
         },
-        scriptSrc: 'test/fixtures/script.js'
+        scriptSrc: 'test/fixtures/**.js'
       }
     },
     clean: ['test/output'],
