@@ -23,13 +23,13 @@ Here is a config to inject a script into a single page, and a second config to i
 ```js
 inject: {
   single: {
-    scriptSrc: 'build/devscript.js',
+    scriptSrc: 'workflow.js',
     files: {
       'dist/index.html': 'src/index.html'
     }
   },
   multiple: {
-    scriptSrc: 'build/devscript.js',
+    scriptSrc: ['workflow/**.js'],
     files: [{
       expand: true,
       cwd: 'src',
@@ -43,9 +43,9 @@ inject: {
 ### Required properties
 
 #### scriptSrc
-Type: `String`
+Type: `String` || `Array` || `[file glob](http://gruntjs.com/configuring-tasks#globbing-patterns)`
 
-The path of the script to be injected into the page.
+The path of the script(s) to be injected into the page.
 
 #### files
 Type: [`Grunt file configuration`](http://gruntjs.com/configuring-tasks#files)
@@ -58,7 +58,7 @@ The `src` HTML files must have the following comment which is replaced by the in
 
 ## Sample Script
 
-Here is a sample `devscript.js` which works together with [grunt-contrib-watch with livereload](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload) and [grunt-weinre with the recommended usage](https://github.com/ChrisWren/grunt-weinre#recommended-usage).
+Here is a sample `workflow.js` which works together with [grunt-contrib-watch with livereload](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload) and [grunt-weinre with the recommended usage](https://github.com/ChrisWren/grunt-weinre#recommended-usage).
 
 ```js
 
@@ -75,6 +75,8 @@ document.write('<script src="http://' + window.location.hostname + ':8082/target
 ```
 
 # Changelog
+
+**0.1.1** - `scriptSrc` now accepts more types to allow workflow scripts/snippets to be separated into discrete files.
 
 **0.1.0** - Multiple script injectons can now be configured in a single task now that the [Grunt file configuration](http://gruntjs.com/configuring-tasks#files) is used.
 
