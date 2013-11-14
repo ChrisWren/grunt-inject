@@ -43,7 +43,7 @@ inject: {
 ### Required properties
 
 #### scriptSrc
-Type: `String` || `Array` || `[file glob](http://gruntjs.com/configuring-tasks#globbing-patterns)`
+Type: `String` || `Array` || [file glob](http://gruntjs.com/configuring-tasks#globbing-patterns)
 
 The path of the script(s) to be injected into the page.
 
